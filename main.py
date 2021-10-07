@@ -25,6 +25,7 @@ def find(media: str):
     with open("found.txt", "r") as f:
         found = f.read().split("\n")
     
+    print(media, found)
     if (media in found):
         return True
     print(f"New: {media}")
@@ -33,7 +34,7 @@ def find(media: str):
     found.insert(0,media)
     with open("found.txt", "w") as f:
         for m in found:
-            if (count == 45): break     # Only save 45 at a time; KM only has 45 on their home page
+            if (count == 90): break     # Only save 90 at a time; KM only has 45 on their home page so 45*2 in the event that all 45 media have never been found
             f.write(m+"\n")
             count+=1
     return False
