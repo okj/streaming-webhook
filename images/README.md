@@ -1,0 +1,1 @@
+These images can be used for webhook profile pictures and can be applied manually during webhook creation.
