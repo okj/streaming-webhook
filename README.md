@@ -19,7 +19,7 @@ Run the script
 
 ## Result
 
-![preview](https://i.imgur.com/i6BF5Mt.png)
+![preview](https://raw.githubusercontent.com/okj/streaming-webhook/main/images/preview.PNG)
 
 
 ## Contributing
