@@ -1,5 +1,5 @@
-# kissmovies-webhook
- Simple script that scrapes new additions to kissmovies and sends them as a Discord webhook them as a webhook over Discord
+# streaming-webhook
+ Simple script that scrapes new additions to different streaming sites and sends them as a Discord webhook
 
 ## Setup
 
@@ -11,6 +11,8 @@ Install the requirements with pip
 
 `python3 -m pip install -r requirements.txt`
 
+Remove unwanted modules in `modules/`
+
 Run the script
 
 `python3 main.py [Hours between checks]`
@@ -18,3 +20,8 @@ Run the script
 ## Result
 
 ![preview](https://i.imgur.com/i6BF5Mt.png)
+
+
+## Contributing
+
+Check out the `templates/` directory for an example of how to create a module for a site of your own
