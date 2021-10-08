@@ -22,7 +22,6 @@ class Utils():
         try:
             r = requests.get(url,headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:90.0) Gecko/20100101 Firefox/90.0","Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"})
             if (r.status_code != 200):
-                Utils.webhookPost(f"Error grabbing HTML!\nStatus code:```{r.status_code}```\n```{r.text}```") 
                 raise requests.exceptions.HTTPError
             return BeautifulSoup(r.content, 'html.parser')
         except requests.exceptions.HTTPError as e:
@@ -31,6 +30,7 @@ class Utils():
             Utils.webhookPost(f"Error connecting to `{url}` (site down?)\n```{e.strerror}```")
         except Exception as e:
             Utils.webhookPost(f"An unknown error has occurred on `{url}`\n```{str(e)}```")
+
         sys.exit("Error grabbing HTML")
     
     # Returns the data in db
