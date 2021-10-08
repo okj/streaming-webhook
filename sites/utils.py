@@ -41,7 +41,6 @@ class Utils():
 
     # Writes the data to the db
     def setDB(j):
-        print(j)
         data = json.dumps(j,indent=4)
         with open('db.json', 'w') as f:
             f.write(data)
