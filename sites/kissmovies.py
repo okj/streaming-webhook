@@ -27,4 +27,4 @@ class Scraper():
                     "url": url+a["href"]
                     })
         
-        Utils.webhookPost(new_media) # A list of embeds
+        Utils.webhookPost(new_media,site_name) # A list of embeds

@@ -4,7 +4,7 @@ import json, os, sys, numpy, math
 
 class Utils():
     # Send the webhook!
-    def webhookPost(embeds):
+    def webhookPost(embeds,site):
         try:
             array = numpy.array(embeds)
             embeds = numpy.array_split(array,math.ceil(len(embeds)/10))
@@ -15,12 +15,12 @@ class Utils():
             data = {
                 "embeds": list(embed_array)
                 }
-            r = requests.post(os.getenv("WEBHOOK_URL"), data=json.dumps(data), headers={"Content-Type": "application/json"})
+            r = requests.post(os.getenv(site), data=json.dumps(data), headers={"Content-Type": "application/json"})
 
     # Simple get request with example headers, returns soup
     def request(url):
         try:
-            r = requests.get(url,headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:90.0) Gecko/20100101 Firefox/90.0","Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"})
+            r = requests.get(url,headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:90.0) Gecko/20100101 Firefox/90.0 okj/streaming-webhook","Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"})
             if (r.status_code != 200):
                 raise requests.exceptions.HTTPError
             return BeautifulSoup(r.content, 'html.parser')

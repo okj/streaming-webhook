@@ -25,4 +25,4 @@ class Scraper(): # Do not change
                     "url": "URL TO MEDIA"
                     })
 
-        Utils.webhookPost(list_of_embeds)
+        Utils.webhookPost(list_of_embeds,site_name)

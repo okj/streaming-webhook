@@ -6,7 +6,6 @@ if __name__ == "__main__":
     load_dotenv()
 
     ### Checks
-    if (os.getenv("WEBHOOK_URL") is None): exit("No webhook url defined!")
     if not os.path.exists("db.json"): 
         with open('db.json', 'w') as f:
             f.write("{}")

@@ -3,9 +3,11 @@
 
 ## Setup
 
-Create and add your Discord webhook url to a **.env** file
+Create and add your Discord webhook urls to a `.env` file. See an example in [templates](https://github.com/okj/streaming-webhook/tree/main/templates)
 
-    WEBHOOK_URL=https://discord.com/api/webhooks/123/ABC
+    modulename=https://discord.com/api/webhooks/123/ABC
+    modulename=https://discord.com/api/webhooks/321/CAB
+    ...
 
 Install the requirements with pip
 
@@ -24,4 +26,7 @@ Run the script
 
 ## Contributing
 
-Check out the `templates/` directory for an example of how to create a module for a site of your own
+Check out the [templates](https://github.com/okj/streaming-webhook/tree/main/templates) directory for an example of how to create a module for a site of your own.
+
+### Disclaimer
+*This project is in no way affiliated with any of the supported streaming websites. Use this script at your own risk.*
