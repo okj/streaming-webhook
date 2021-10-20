@@ -18,19 +18,21 @@ class Utils():
             r = requests.post(os.getenv(site), data=json.dumps(data), headers={"Content-Type": "application/json"})
 
     # Simple get request with example headers, returns soup
-    def request(url):
+    def request(url,site):
+        error=""
         try:
             r = requests.get(url,headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:90.0) Gecko/20100101 Firefox/90.0 okj/streaming-webhook","Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"})
             if (r.status_code != 200):
                 raise requests.exceptions.HTTPError
             return BeautifulSoup(r.content, 'html.parser')
         except requests.exceptions.HTTPError as e:
-            Utils.webhookPost(f"Unexpected status_code grabbing HTML on `{url}`\n```{e.strerror}```")
+            error = f"Unexpected status_code grabbing HTML on `{url}`\n```{e.strerror}```"
         except requests.exceptions.ConnectionError as e:
-            Utils.webhookPost(f"Error connecting to `{url}` (site down?)\n```{e.strerror}```")
+            error = f"Error connecting to `{url}` (site down?)\n```{e.strerror}```"
         except Exception as e:
-            Utils.webhookPost(f"An unknown error has occurred on `{url}`\n```{str(e)}```")
+            error = f"An unknown error has occurred on `{url}`\n```{str(e)}```"
 
+        r = requests.post(os.getenv(site), data=json.dumps({"content":error}), headers={"Content-Type": "application/json"})
         sys.exit("Error grabbing HTML")
     
     # Returns the data in db

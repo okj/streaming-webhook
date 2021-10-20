@@ -8,7 +8,7 @@ class Scraper():
         new_media = []
         url = "https://www9.kissanime.so/"
 
-        soup = Utils.request(url)
+        soup = Utils.request(url,site_name)
 
         ### Scraping code
         carousel = soup.find("ul",attrs={"class":"scroll_popular"})

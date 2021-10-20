@@ -6,7 +6,7 @@ class Scraper(): # Do not change
         list_of_embeds = []
         url = "YOUR URL HERE"
 
-        soup = Utils.request(url) # Returns a BeautifulSoup object
+        soup = Utils.request(url,site_name) # Returns a BeautifulSoup object
 
         # Scraping code goes here
         ## Read about BeautifulSoup: https://beautiful-soup-4.readthedocs.io/en/latest/
