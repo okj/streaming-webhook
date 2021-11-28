@@ -7,6 +7,7 @@ class Scraper(): # Do not change
         url = "YOUR URL HERE"
 
         soup = Utils.request(url,site_name) # Returns a BeautifulSoup object
+        if soup is None: return
 
         # Scraping code goes here
         ## Read about BeautifulSoup: https://beautiful-soup-4.readthedocs.io/en/latest/

@@ -9,6 +9,7 @@ class Scraper():
         url = "https://www9.kissanime.so/"
 
         soup = Utils.request(url,site_name)
+        if soup is None: return
 
         ### Scraping code
         carousel = soup.find("ul",attrs={"class":"scroll_popular"})

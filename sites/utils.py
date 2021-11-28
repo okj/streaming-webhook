@@ -26,14 +26,12 @@ class Utils():
                 raise requests.exceptions.HTTPError
             return BeautifulSoup(r.content, 'html.parser')
         except requests.exceptions.HTTPError as e:
-            error = f"Unexpected status_code grabbing HTML on `{url}`\n```{e.strerror}```"
+            requests.post(os.getenv(site), data=json.dumps({"content":f"Unexpected status_code grabbing HTML on `{url}`\n```{e.strerror}```"}), headers={"Content-Type": "application/json"})
         except requests.exceptions.ConnectionError as e:
-            error = f"Error connecting to `{url}` (site down?)\n```{e.strerror}```"
+            requests.post(os.getenv(site), data=json.dumps({"content":f"Error connecting to `{url}` (site down?)\n```{e.strerror}```"}), headers={"Content-Type": "application/json"})
         except Exception as e:
-            error = f"An unknown error has occurred on `{url}`\n```{str(e)}```"
-
-        r = requests.post(os.getenv(site), data=json.dumps({"content":error}), headers={"Content-Type": "application/json"})
-        sys.exit("Error grabbing HTML")
+            print("Error sending webhooks")
+        return None
     
     # Returns the data in db
     def getDB():
